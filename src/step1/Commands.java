@@ -283,11 +283,11 @@ public class Commands {
 								&& !tgtString.startsWith("<jdk.") && !tgtString.startsWith("<javax."))) {
 					
 					srcString += srcString.equals("<") ? srcClass : ("." + srcClass);
-					srcString += srcString.equals("<") ? method.getName() : ("." + method.getName());
+					srcString += srcString.equals("<") ? method.getName() : (": " + method.getName());
 					tgtString += tgtString.equals("<") ? tgtClass : ("." + tgtClass);
-					tgtString += tgtString.equals("<") ? methodInvocation.getName() : ("." + methodInvocation.getName());
+					tgtString += tgtString.equals("<") ? methodInvocation.getName() : (": " + methodInvocation.getName());
 					
-					String link = "	\"" + srcString + ">\"->\"" + tgtString + ">\";\n";
+					String link = "	\"" + srcString + "()>\"->\"" + tgtString + "()>\";\n";
 					
 					if(!callGraph.contains(link))
 						callGraph.add(link);
@@ -324,15 +324,15 @@ public class Commands {
 		System.out.println("5. Nombre moyen de méthodes par classe : " + (1.0 * methodsNumberByClass / classesNumber));
 		System.out.println("6. Nombre moyen de lignes par méthode : " + (1.0 * methodsLines / methodsNumber));
 		System.out.println("7. Nombre moyen d'attributs par classe : " + (1.0 * fieldsNumberByClass / classesNumber));
-		System.out.println("8. 10% de classes avec le + grand nb. de méthodes : " + getClassesWithMostMethods().toString());
-		System.out.println("9. 10% de classes avec le + grand nb. d'attributs : " + getClassesWithMostFields().toString());
+		System.out.println("8. 10% de classes avec le plus grand nombre de méthodes : " + getClassesWithMostMethods().toString());
+		System.out.println("9. 10% de classes avec le plus grand nombre d'attributs : " + getClassesWithMostFields().toString());
 		System.out.println("10. Classes qui font partie des 2 catégories : " + getClassesWithMostMethodsAndFields().toString());
 		System.out.println("11. Classes qui possèdent plus de " + X + " méthodes : " + classesWithXMethods.toString());
-		System.out.println("12. 10% de méthodes avec le + grand nb. de lignes (par classe) : " + getMethodsWithMostLines().toString());
-		System.out.println("13. Nombre max. de paramètres par rapport à toutes les méthodes : " + maxParameters);
+		System.out.println("12. 10% de méthodes avec le plus grand nombre de lignes (par classe) : " + getMethodsWithMostLines().toString());
+		System.out.println("13. Nombre maximal de paramètres par rapport à toutes les méthodes : " + maxParameters);
 		System.out.println("\nExercice 2\n");
 		System.out.println("1. Construisez le graphe d'appel qui correspond au code analysé : \n\n" + String.join("", callGraph));
-		System.out.println("/!\\ ATTENTION ! J'ai fait le choix de n'afficher que les appels de méthodes qui proviennent\ndes classes du projet et pas les appels de méthodes de Java, pour une question de visibilité.");
+		System.out.println("/!\\ ATTENTION ! J'ai fait le choix de n'afficher que les appels de méthodes qui proviennent des classes\ndu projet (au format DOT) et pas les appels de méthodes de Java, pour une question de lisibilité.\n");
 		
 		File file = new File("call-graph.dot");
 		

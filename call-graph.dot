@@ -1,5 +1,5 @@
 digraph "call-graph" {
-	"<testers.CallGraphs.main>"->"<testers.CallGraphs.doStuff>";
-	"<testers.CallGraphs.doStuff>"->"<testers.A.foo>";
-	"<testers.A.foo>"->"<testers.A.bar>";
+	"<testers.CallGraphs: main()>"->"<testers.CallGraphs: doStuff()>";
+	"<testers.CallGraphs: doStuff()>"->"<testers.A: foo()>";
+	"<testers.A: foo()>"->"<testers.A: bar()>";
 }
