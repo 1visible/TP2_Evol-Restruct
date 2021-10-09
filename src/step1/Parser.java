@@ -13,7 +13,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 
 public class Parser {
 	
-	public static final String projectPath = "D:\\Documents\\Eclipse Workspace\\SootTutorial";
+	public static final String projectPath = "D:\\Documents\\Eclipse Workspace\\ApplicationTest";
 	public static final String projectSourcePath = projectPath + "\\src";
 	public static final String jrePath = "D:\\Programmes\\Java\\lib\\rt.jar";
 

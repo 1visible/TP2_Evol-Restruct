@@ -1,6 +1,4 @@
 digraph "call-graph" {
-	"<Main.main>"->"<Main.serializeCallGraph>";
-	"<internalTransform>"->"<Main.serializeCallGraph>";
 	"<testers.CallGraphs.main>"->"<testers.CallGraphs.doStuff>";
 	"<testers.CallGraphs.doStuff>"->"<testers.A.foo>";
 	"<testers.A.foo>"->"<testers.A.bar>";
